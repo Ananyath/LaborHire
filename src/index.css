@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 350 20% 98%;
+    --foreground: 340 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 340 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 15% 15%;
+
+    --primary: 330 81% 60%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 330 20% 96%;
+    --secondary-foreground: 340 15% 15%;
+
+    --muted: 330 20% 96%;
+    --muted-foreground: 340 10% 45%;
+
+    --accent: 330 30% 92%;
+    --accent-foreground: 340 15% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 330 20% 88%;
+    --input: 330 20% 88%;
+    --ring: 330 81% 60%;
+
+    --radius: 0.75rem;
+
+    /* Pink gradients and effects */
+    --gradient-primary: linear-gradient(135deg, hsl(330 81% 60%), hsl(340 90% 70%));
+    --gradient-secondary: linear-gradient(135deg, hsl(330 20% 96%), hsl(340 30% 92%));
+    --gradient-hero: linear-gradient(135deg, hsl(330 81% 60% / 0.1), hsl(340 90% 70% / 0.1));
+    
+    --shadow-pink: 0 10px 30px -10px hsl(330 81% 60% / 0.3);
+    --shadow-glow: 0 0 40px hsl(330 81% 60% / 0.2);
+
+    --sidebar-background: 350 20% 98%;
+    --sidebar-foreground: 340 15% 15%;
+    --sidebar-primary: 330 81% 60%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 330 20% 96%;
+    --sidebar-accent-foreground: 340 15% 15%;
+    --sidebar-border: 330 20% 88%;
+    --sidebar-ring: 330 81% 60%;
+  }
+
+  .dark {
+    --background: 340 15% 8%;
+    --foreground: 330 20% 95%;
+
+    --card: 340 15% 10%;
+    --card-foreground: 330 20% 95%;
+
+    --popover: 340 15% 10%;
+    --popover-foreground: 330 20% 95%;
+
+    --primary: 330 81% 70%;
+    --primary-foreground: 340 15% 8%;
+
+    --secondary: 340 15% 15%;
+    --secondary-foreground: 330 20% 95%;
+
+    --muted: 340 15% 15%;
+    --muted-foreground: 330 15% 65%;
+
+    --accent: 340 15% 15%;
+    --accent-foreground: 330 20% 95%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 330 20% 95%;
+
+    --border: 340 15% 20%;
+    --input: 340 15% 20%;
+    --ring: 330 81% 70%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(330 81% 70%), hsl(340 90% 80%));
+    --gradient-secondary: linear-gradient(135deg, hsl(340 15% 15%), hsl(330 20% 20%));
+    --gradient-hero: linear-gradient(135deg, hsl(330 81% 70% / 0.1), hsl(340 90% 80% / 0.1));
+    
+    --shadow-pink: 0 10px 30px -10px hsl(330 81% 70% / 0.4);
+    --shadow-glow: 0 0 40px hsl(330 81% 70% / 0.3);
+
+    --sidebar-background: 340 15% 8%;
+    --sidebar-foreground: 330 20% 95%;
+    --sidebar-primary: 330 81% 70%;
+    --sidebar-primary-foreground: 340 15% 8%;
+    --sidebar-accent: 340 15% 15%;
+    --sidebar-accent-foreground: 330 20% 95%;
+    --sidebar-border: 340 15% 20%;
+    --sidebar-ring: 330 81% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .shadow-pink {
+    box-shadow: var(--shadow-pink);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in-delayed {
+    animation: fade-in 0.8s ease-out 0.3s forwards;
+    opacity: 0;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
